@@ -11,11 +11,16 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - checkout
-      - run: echo "Hellooooo There..."
+      - run: echo "Hellooooo There..." > Hello.txt
   print_world:
     docker:
       - image: circleci/node:13.8.0
     steps:
+      - run: |
+          if [[ $(cat Hello.txt) == "Hellooooo There..." ]] then echo "it worked!";
+          else
+            echo "NOPE!"; exit 1
+          fi
       - checkout
       - run: echo "World!!!"
 workflows:
