@@ -4,7 +4,7 @@ workflows:
   test-env-vars:
     jobs:
       - build:
-          context: MyFakeAPI_Key  # has an env var called MY_ENV_VAR
+          context: My_Contexts  # has an env var called MY_ENV_VAR
 
 jobs:
   build:
