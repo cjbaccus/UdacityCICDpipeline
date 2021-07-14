@@ -27,4 +27,10 @@ jobs:
           root: /tmp/
           paths:
             - workspace
+      - attach_workspace:
+        at: /tmp/workspace
+      - run:
+          name: "output cat"
+          command: |
+            cat output.txt
 
