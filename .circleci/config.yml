@@ -28,4 +28,8 @@ jobs:
           paths:
             - workspace
       - attach_workspace:
-        at: /tmp/workspace
+          at: /tmp/workspace
+      - run:
+          name: "cat output"
+          command: | 
+            cat output.txt
