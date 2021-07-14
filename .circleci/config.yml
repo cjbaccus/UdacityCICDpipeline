@@ -16,7 +16,15 @@ jobs:
     steps:
       - checkout
       - run:
+          name: "make new dir"
+          command: |
+            mkdir -p /tmp/workspace
+      - run:
           name: "echo an env var that is part of our context"
           command: |
             echo "this is my output text" > output.txt
+      - persist_to_workspace:
+          root: /tmp/
+          paths:
+            - workspace
 
