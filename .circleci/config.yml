@@ -20,6 +20,6 @@ jobs:
           command: |
             echo "this is my output text" > output.txt
       - persist_to_workspace:
-          root: /tmp/dir
+          root: /tmp/
           paths:
             - foo/bar
