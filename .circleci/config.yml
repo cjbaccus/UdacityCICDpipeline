@@ -18,4 +18,8 @@ jobs:
       - run:
           name: "echo an env var that is part of our context"
           command: |
-            echo $MY_ENV_VAR
+            echo "this is my output text" > output.txt
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - ~/output.txt
