@@ -23,6 +23,7 @@ jobs:
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var references
     steps:
       - checkout
+      - print_pipeline_id
       - run:
           name: "make new dir"
           command: |
