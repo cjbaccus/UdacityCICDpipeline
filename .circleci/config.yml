@@ -1,10 +1,5 @@
 version: 2.1
 
-workflows:
-  test-env-vars:
-    jobs:
-      - my_job:
-          context: My_Contexts  # has an env var called MY_ENV_VAR
 commands:
   print_pipeline_id:
     description: "print the pipeline id to console"
@@ -23,17 +18,17 @@ jobs:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var references
     steps:
-      - checkout
-      - print_pipeline_id
-      - run: 
-          name: "return 1"
-          command: | 
-            return 1
+#      - checkout
+#      - print_pipeline_id
+      - run: return 1
       - run:
-          name: "on fail do this"
-          command: |
-            echo "YEP THAT FAILED"
-            when: on-fail
+          name: "on error"
+          command: echo "YEP that FAILED!!"
+          when: on-fail
             
-
+workflows:
+  my_workflow:
+    jobs:
+      - my_job:
+          context: My_Contexts  # My workflow
 
