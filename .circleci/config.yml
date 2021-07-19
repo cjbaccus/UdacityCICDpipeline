@@ -18,30 +18,17 @@ commands:
 jobs:
   my_job:
     docker:
-      - image: cimg/base:2020.01
+      - image: circleci/node:13.8.0
         auth:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var references
     steps:
       - checkout
       - print_pipeline_id
-      - run:
-          name: "make new dir"
-          command: |
-            mkdir -p /tmp/workspace
-      - run:
-          name: "echo an env var that is part of our context"
-          command: |
-            echo "this is my output text" > output.txt
-      - persist_to_workspace:
-          root: /tmp/
-          paths:
-            - workspace
-      - attach_workspace:
-          at: /tmp/workspace
-      - run:
-          name: "cat output"
+      - run: 
+          name: "return 1"
           command: | 
-            cat output.txt
+            return 1
+            
 
 
