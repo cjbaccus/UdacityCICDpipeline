@@ -16,7 +16,7 @@ commands:
       - run: echo << parameters.to >>
     
 jobs:
-  build:
+  my_job:
     docker:
       - image: cimg/base:2020.01
         auth:
@@ -43,4 +43,9 @@ jobs:
           name: "cat output"
           command: | 
             cat output.txt
-#      - print_pipeline_id
+
+workflows:
+  my_workflow:
+    jobs: 
+      - my_job
+      
