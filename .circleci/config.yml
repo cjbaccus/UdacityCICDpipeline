@@ -5,14 +5,14 @@ workflows:
     jobs:
       - build:
           context: My_Contexts  # has an env var called MY_ENV_VAR
-commands:
-  print_pipeline_id:
-    description: "print the pipeline id to console"
-    parameters:
-      to:
-        type: string
-    steps:
-      - run: echo << $CIRCLE_WORKFLOW_ID >>
+#commands:
+#  print_pipeline_id:
+#    description: "print the pipeline id to console"
+#    parameters:
+#      to:
+#        type: string
+#    steps:
+#      - run: echo << $CIRCLE_WORKFLOW_ID >>
     
 jobs:
   build:
@@ -31,7 +31,6 @@ jobs:
           name: "echo an env var that is part of our context"
           command: |
             echo "this is my output text" > output.txt
-          - print_pipeline_id:
       - persist_to_workspace:
           root: /tmp/
           paths:
@@ -42,3 +41,4 @@ jobs:
           name: "cat output"
           command: | 
             cat output.txt
+#      - print_pipeline_id
