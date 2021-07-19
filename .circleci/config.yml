@@ -33,7 +33,7 @@ jobs:
           name: "on fail do this"
           command: |
             echo "YEP THAT FAILED"
-          when: on-fail
+            when: on-fail
             
 
 
