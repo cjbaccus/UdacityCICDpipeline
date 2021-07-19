@@ -3,7 +3,7 @@ version: 2.1
 workflows:
   test-env-vars:
     jobs:
-      - build:
+      - my_job:
           context: My_Contexts  # has an env var called MY_ENV_VAR
 commands:
   print_pipeline_id:
@@ -44,8 +44,4 @@ jobs:
           command: | 
             cat output.txt
 
-workflows:
-  my_workflow:
-    jobs: 
-      - my_job
-      
+
