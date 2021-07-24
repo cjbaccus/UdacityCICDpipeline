@@ -20,7 +20,7 @@ jobs:
     steps:
 #      - checkout
 #      - print_pipeline_id
-      - run: return 1
+#      - run: return 1
       - run:
           name: "on error"
           command: echo "YEP that FAILED!!"
